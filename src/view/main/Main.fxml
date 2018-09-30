@@ -47,7 +47,7 @@
 			<right>
 				<VBox prefHeight="525.0" prefWidth="192.0" BorderPane.alignment="CENTER">
 					<children>
-						<JFXButton fx:id="addMemberBtn" contentDisplay="TOP" onAction="#loadAddMember" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Cadastrar Requisitante">
+						<JFXButton fx:id="addRequisitanteBtn" contentDisplay="TOP" onAction="#loadAddRequisitante" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Cadastrar Requisitante">
 							<graphic>
 								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -65,11 +65,11 @@
 								<Font size="13.0" />
 							</font>
 						</JFXButton>
-						<JFXButton fx:id="addBookBtn" contentDisplay="TOP" onAction="#loadAddBook" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Cadastrar Ferramenta">
+						<JFXButton fx:id="addFerramentaBtn" contentDisplay="TOP" onAction="#loadAddFerramenta" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Cadastrar Ferramenta">
 							<graphic>
 								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../../../../icons/hammer-and-pick.png" />
+										<Image url="@../../images/tools-6b9bbb.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -83,7 +83,7 @@
 								<Font size="13.0" />
 							</font>
 						</JFXButton>
-						<JFXButton fx:id="viewMembersBtn" contentDisplay="TOP" onAction="#loadViewMembers" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Visualizar Requisitantes">
+						<JFXButton fx:id="viewRequisitantesBtn" contentDisplay="TOP" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Visualizar Requisitantes">
 							<graphic>
 								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -101,7 +101,7 @@
 								<Font size="13.0" />
 							</font>
 						</JFXButton>
-						<JFXButton fx:id="viewBooksBtn" contentDisplay="TOP" onAction="#loadViewBooks" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Visualizar Empréstimos">
+						<JFXButton fx:id="viewEmprestimosBtn" contentDisplay="TOP" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Visualizar Empréstimos">
 							<graphic>
 								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -143,7 +143,7 @@
 			<center>
 				<TabPane prefHeight="200.0" prefWidth="625.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
 					<tabs>
-						<Tab text="Book Issue">
+						<Tab text="Principal">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
@@ -257,15 +257,15 @@
 								</AnchorPane>
 							</content>
 						</Tab>
-						<Tab text="Renew/Submit">
+						<Tab text="Usuários">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
 										<BorderPane prefHeight="434.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 											<top>
-												<JFXTextField alignment="CENTER" prefHeight="25.0" prefWidth="150.0" promptText="Enter Book ID" BorderPane.alignment="CENTER">
+												<JFXTextField alignment="CENTER" prefHeight="25.0" prefWidth="150.0" promptText="Nº Identificação do Usuário" BorderPane.alignment="CENTER">
 													<BorderPane.margin>
-														<Insets left="170.0" right="170.0" top="10.0" />
+														<Insets left="170.0" right="170.0" top="20.0" />
 													</BorderPane.margin>
 												</JFXTextField>
 											</top>
@@ -282,21 +282,7 @@
 											<bottom>
 												<HBox alignment="CENTER" prefHeight="66.0" prefWidth="604.0" BorderPane.alignment="CENTER">
 													<children>
-														<JFXButton buttonType="RAISED" styleClass="setup-button" stylesheets="@main.css" text="Renovar Empréstimo">
-															<HBox.margin>
-																<Insets left="10.0" right="10.0" />
-															</HBox.margin>
-															<padding>
-																<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-															</padding>
-															<font>
-																<Font size="13.0" />
-															</font>
-															<cursor>
-																<Cursor fx:constant="HAND" />
-															</cursor>
-														</JFXButton>
-														<JFXButton buttonType="RAISED" layoutX="282.0" layoutY="31.0" styleClass="setup-button" stylesheets="@main.css" text="Encerrar Empréstimo">
+														<JFXButton buttonType="RAISED" styleClass="setup-button" stylesheets="@main.css" text="Visualizar Usuário">
 															<HBox.margin>
 																<Insets left="10.0" right="10.0" />
 															</HBox.margin>
@@ -324,6 +310,112 @@
 								</AnchorPane>
 							</content>
 						</Tab>
+                  <Tab text="Empréstimos">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane prefHeight="434.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <top>
+                                    <JFXTextField alignment="CENTER" prefHeight="25.0" prefWidth="150.0" promptText="Nº Identificação" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets left="170.0" right="170.0" top="20.0" />
+                                       </BorderPane.margin>
+                                    </JFXTextField>
+                                 </top>
+                                 <center>
+                                    <ListView prefHeight="380.0" prefWidth="604.0" BorderPane.alignment="CENTER">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" top="10.0" />
+                                       </padding>
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </BorderPane.margin>
+                                    </ListView>
+                                 </center>
+                                 <bottom>
+                                    <HBox alignment="CENTER" prefHeight="66.0" prefWidth="604.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" styleClass="setup-button" stylesheets="@main.css" text="Visualizar Empréstimo">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXButton>
+                                       </children>
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" top="5.0" />
+                                       </BorderPane.margin>
+                                       <padding>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </bottom>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Ferramentas">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane prefHeight="434.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <top>
+                                    <JFXTextField alignment="CENTER" prefHeight="25.0" prefWidth="150.0" promptText="Digite o Identificador da Ferramenta" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets left="170.0" right="170.0" top="20.0" />
+                                       </BorderPane.margin>
+                                    </JFXTextField>
+                                 </top>
+                                 <center>
+                                    <ListView prefHeight="380.0" prefWidth="604.0" BorderPane.alignment="CENTER">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" top="10.0" />
+                                       </padding>
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </BorderPane.margin>
+                                    </ListView>
+                                 </center>
+                                 <bottom>
+                                    <HBox alignment="CENTER" prefHeight="66.0" prefWidth="604.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" styleClass="setup-button" stylesheets="@main.css" text="Visualizar Ferramenta">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXButton>
+                                       </children>
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" top="5.0" />
+                                       </BorderPane.margin>
+                                       <padding>
+                                          <Insets bottom="20.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </bottom>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
 					</tabs>
 					<BorderPane.margin>
 						<Insets right="20.0" />
