@@ -5,7 +5,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -155,23 +154,6 @@
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
 										<BorderPane prefHeight="434.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-											<top>
-												<JFXTextField alignment="CENTER" prefHeight="25.0" prefWidth="150.0" promptText="Nº Identificação do Usuário" BorderPane.alignment="CENTER">
-													<BorderPane.margin>
-														<Insets left="170.0" right="170.0" top="20.0" />
-													</BorderPane.margin>
-												</JFXTextField>
-											</top>
-											<center>
-												<ListView prefHeight="380.0" prefWidth="604.0" BorderPane.alignment="CENTER">
-													<padding>
-														<Insets left="20.0" right="20.0" top="10.0" />
-													</padding>
-													<BorderPane.margin>
-														<Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
-													</BorderPane.margin>
-												</ListView>
-											</center>
 											<bottom>
 												<HBox alignment="CENTER" prefHeight="66.0" prefWidth="604.0" BorderPane.alignment="CENTER">
 													<children>
@@ -198,6 +180,48 @@
 													</padding>
 												</HBox>
 											</bottom>
+                                 <top>
+                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <JFXTextField prefWidth="250.0" promptText="Buscar Por">
+                                             <HBox.margin>
+                                                <Insets left="15.0" right="10.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                          <JFXButton prefWidth="100.0" styleClass="setup-button" stylesheets="@main.css" text="Buscar">
+                                             <HBox.margin>
+                                                <Insets left="30.0" right="10.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXButton>
+                                       </children>
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </BorderPane.margin>
+                                    </HBox>
+                                 </top>
+                                 <center>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </BorderPane.margin>
+                                       <children>
+                                          <TableView prefHeight="339.0" prefWidth="668.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Matricula" />
+                                              <TableColumn prefWidth="75.0" text="Nome" />
+                                                <TableColumn prefWidth="75.0" text="Email" />
+                                                <TableColumn prefWidth="75.0" text="Empréstimo Ativo" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </center>
 										</BorderPane>
 									</children>
 								</AnchorPane>
@@ -208,23 +232,6 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <BorderPane prefHeight="434.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <top>
-                                    <JFXTextField alignment="CENTER" prefHeight="25.0" prefWidth="150.0" promptText="Nº Identificação" BorderPane.alignment="CENTER">
-                                       <BorderPane.margin>
-                                          <Insets left="170.0" right="170.0" top="20.0" />
-                                       </BorderPane.margin>
-                                    </JFXTextField>
-                                 </top>
-                                 <center>
-                                    <ListView prefHeight="380.0" prefWidth="604.0" BorderPane.alignment="CENTER">
-                                       <padding>
-                                          <Insets left="20.0" right="20.0" top="10.0" />
-                                       </padding>
-                                       <BorderPane.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
-                                       </BorderPane.margin>
-                                    </ListView>
-                                 </center>
                                  <bottom>
                                     <HBox alignment="CENTER" prefHeight="66.0" prefWidth="604.0" BorderPane.alignment="CENTER">
                                        <children>
@@ -251,6 +258,47 @@
                                        </padding>
                                     </HBox>
                                  </bottom>
+                                 <top>
+                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <JFXComboBox prefHeight="25.0" prefWidth="250.0" promptText="Buscar Por">
+                                             <HBox.margin>
+                                                <Insets left="15.0" right="10.0" />
+                                             </HBox.margin>
+                                          </JFXComboBox>
+                                          <JFXButton fx:id="buscarEmprestimosBtn" prefWidth="100.0" styleClass="setup-button" stylesheets="@main.css" text="Buscar">
+                                             <HBox.margin>
+                                                <Insets left="30.0" right="10.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXButton>
+                                       </children>
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </BorderPane.margin>
+                                    </HBox>
+                                 </top>
+                                 <center>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <TableView prefHeight="359.0" prefWidth="688.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="ID" />
+                                              <TableColumn prefWidth="75.0" text="Data Início" />
+                                                <TableColumn prefWidth="75.0" text="Status" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                       <BorderPane.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </BorderPane.margin>
+                                    </AnchorPane>
+                                 </center>
                               </BorderPane>
                            </children>
                         </AnchorPane>
