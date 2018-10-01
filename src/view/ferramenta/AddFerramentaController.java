@@ -52,7 +52,8 @@ public class AddFerramentaController implements Initializable {
 			emptyFieldAlert();
 		}
 		
-		Ferramenta ferramenta = new Ferramenta(toolId, toolTipo, toolDescricao);
+		// Uma Ferramenta sempre deve ser cadastrada como isDisponivel = 'true'.
+		Ferramenta ferramenta = new Ferramenta(toolId, toolTipo, toolDescricao, true); 
 		
 		FerramentaDAO dao = new FerramentaDAO();		
 		dao.createFerramenta(ferramenta);

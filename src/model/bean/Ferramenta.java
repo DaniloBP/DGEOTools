@@ -8,12 +8,12 @@ public class Ferramenta {
 	private Boolean isDisponivel;
 	
 	
-	public Ferramenta(String id, String tipo, String descricao) {
+	public Ferramenta(String id, String tipo, String descricao, Boolean isDisponivel) {
 		super();
 		this.id = id;
 		this.tipo = tipo;
 		this.descricao = descricao;
-		this.isDisponivel = true;
+		this.isDisponivel = isDisponivel;
 	}
 
 	public String getId() {
