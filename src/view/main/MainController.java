@@ -1,5 +1,7 @@
 package view.main;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,29 +10,36 @@ import com.jfoenix.controls.JFXComboBox;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.bean.Ferramenta;
 
 
 public class MainController implements Initializable {
 
+	//	Botões Laterais...
+	@FXML
+    private JFXButton registrarEmprestimoBtn;
+	@FXML
+    private JFXButton buscarUsuarioBtn;
+	@FXML
+    private JFXButton buscarFerramentaBtn;
 	@FXML
     private JFXButton addUsuarioBtn;
     @FXML
     private JFXButton addFerramentaBtn;
-    @FXML
-    private JFXButton viewUsuariosBtn;
-    @FXML
-    private JFXButton viewEmprestimosBtn;
-    @FXML
-    private JFXButton settingsBtn;
-
+    
+       
     // ---- TAB 'Ferramentas' START ----
     @FXML
     private Tab tabFerramentas;
@@ -56,8 +65,8 @@ public class MainController implements Initializable {
     @FXML
     private JFXButton viewFerramentaBtn;
     // ---- TAB 'Ferramentas' END ---- 
- 
-   
+    
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -67,31 +76,52 @@ public class MainController implements Initializable {
 	
 	
 	@FXML
+    void loadRegistrarEmprestimo(ActionEvent event) {
+		
+    }
+	
+	@FXML
+    void loadBuscarUsuario(ActionEvent event) {
+		
+    }
+	
+	@FXML
+    void loadBuscarFerramenta(ActionEvent event) {
+		
+    }    
+	
+	@FXML
     void loadAddUsuario(ActionEvent event) {
-
+		
     }
     
     @FXML
     void loadAddFerramenta(ActionEvent event) {
-
-    }
+    	
+    	loadWindow("Cadastrar Nova Ferramenta", "src/view/ferramenta/AddFerramenta.fxml");
+    }    
     
-    @FXML
-    void loadViewUsuarios(ActionEvent event) {
-
+    void loadWindow(String title, String location) {
+    	
+    	try {
+//			Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource(location));
+			
+    		// Só está carregando assim do contrário lança exceção;
+			URL url = new File(location).toURI().toURL();
+			Parent parent = FXMLLoader.load(url);
+			
+			Stage stage = new Stage(StageStyle.UNDECORATED);
+			stage.setTitle(title);
+			stage.setScene( new Scene(parent) );
+			stage.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
-    
-    @FXML
-    void loadViewEmprestimos(ActionEvent event) {
-
-    }
-
-    @FXML
-    void loadSettings(ActionEvent event) {
-
-    }
-    
-//   ---- ACTIONS FROM TAB 'Ferramentas'  ----
+   
+   
+    //   ---- ACTIONS FROM TAB 'Ferramentas'  ----
     private void initComboBoxFerramentas() {
     	
 		this.comboBoxBuscarFerramentas.getItems().add(new Label("Empréstimos Ativos") );

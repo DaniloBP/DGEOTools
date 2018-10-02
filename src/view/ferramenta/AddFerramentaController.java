@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.bean.Ferramenta;
@@ -21,6 +23,9 @@ public class AddFerramentaController implements Initializable {
 
 	@FXML
     private AnchorPane rootPane;
+	
+	@FXML
+    private Label exitLabel;
 	
     @FXML
     private JFXTextField idTxt;
@@ -60,19 +65,24 @@ public class AddFerramentaController implements Initializable {
     }
 	
 	private void emptyFieldAlert() {
-		
+		// Tá dando algum tipo de CRASH no JVM quando a janela é fechada.
 		Alert alert = new Alert(Alert.AlertType.ERROR);
 		alert.setHeaderText(null);
-		alert.setContentText("Every field must be filled with data!");
+		alert.setContentText("Todos os campos devem ser preenchidos!");
 		alert.showAndWait();
 		return;
 	}
 
     @FXML
-    void cancel(ActionEvent event) {
-    	
+    void cancel(ActionEvent event) {    	
     	closeWindow();
     }
+    
+    @FXML
+    void exitAction(MouseEvent event) {
+    	closeWindow();
+    }
+
     
     public void closeWindow() {
     	

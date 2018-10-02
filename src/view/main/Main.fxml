@@ -25,7 +25,7 @@
 	<children>
 		<BorderPane prefHeight="200.0" prefWidth="664.0">
 			<top>
-				<MenuBar BorderPane.alignment="CENTER">
+				<MenuBar style="-fx-background-color: #B4C5C6;" BorderPane.alignment="CENTER">
 					<menus>
 						<Menu mnemonicParsing="false" text="File">
 							<items>
@@ -48,7 +48,7 @@
 			<right>
 				<VBox prefHeight="525.0" prefWidth="192.0" BorderPane.alignment="CENTER">
 					<children>
-						<JFXButton fx:id="viewEmprestimosBtn" contentDisplay="TOP" onAction="#loadViewEmprestimos" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Registrar Empréstimo">
+						<JFXButton fx:id="registrarEmprestimoBtn" contentDisplay="TOP" onAction="#loadRegistrarEmprestimo" prefHeight="180.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Registrar Empréstimo">
 							<graphic>
 								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -60,13 +60,13 @@
 								<Cursor fx:constant="HAND" />
 							</cursor>
 							<VBox.margin>
-								<Insets bottom="2.0" />
+								<Insets bottom="2.0" top="2.0" />
 							</VBox.margin>
 							<font>
 								<Font size="13.0" />
 							</font>
 						</JFXButton>
-						<JFXButton fx:id="viewUsuariosBtn" contentDisplay="TOP" onAction="#loadViewUsuarios" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Buscar Usuário">
+						<JFXButton fx:id="buscarUsuarioBtn" contentDisplay="TOP" onAction="#loadBuscarUsuario" prefHeight="180.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Buscar Usuário">
 							<graphic>
 								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -84,29 +84,11 @@
 								<Font size="13.0" />
 							</font>
 						</JFXButton>
-						<JFXButton fx:id="addUsuarioBtn" contentDisplay="TOP" onAction="#loadAddUsuario" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Cadastrar Usuáro">
+						<JFXButton fx:id="buscarFerramentaBtn" contentDisplay="TOP" layoutX="10.0" layoutY="241.0" onAction="#loadBuscarFerramenta" prefHeight="180.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Buscar Ferramenta">
 							<graphic>
 								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../images/user-plus-f382e.png" />
-									</image>
-								</ImageView>
-							</graphic>
-							<cursor>
-								<Cursor fx:constant="HAND" />
-							</cursor>
-							<VBox.margin>
-								<Insets bottom="2.0" top="2.0" />
-							</VBox.margin>
-							<font>
-								<Font size="13.0" />
-							</font>
-						</JFXButton>
-						<JFXButton fx:id="addFerramentaBtn" contentDisplay="TOP" onAction="#loadAddFerramenta" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Cadastrar Ferramenta">
-							<graphic>
-								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-									<image>
-										<Image url="@../../images/tools-2f382e.png" />
+										<Image url="@../../images/search-2f382e.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -120,11 +102,29 @@
 								<Font size="13.0" />
 							</font>
 						</JFXButton>
-						<JFXButton fx:id="settingsBtn" contentDisplay="TOP" layoutX="10.0" layoutY="241.0" onAction="#loadSettings" prefHeight="150.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Configurações">
+						<JFXButton fx:id="addUsuarioBtn" contentDisplay="TOP" onAction="#loadAddUsuario" prefHeight="180.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Cadastrar Usuáro">
 							<graphic>
 								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../images/settings-2f382e.png" />
+										<Image url="@../../images/user-plus-f382e.png" />
+									</image>
+								</ImageView>
+							</graphic>
+							<cursor>
+								<Cursor fx:constant="HAND" />
+							</cursor>
+							<VBox.margin>
+								<Insets bottom="2.0" />
+							</VBox.margin>
+							<font>
+								<Font size="13.0" />
+							</font>
+						</JFXButton>
+						<JFXButton fx:id="addFerramentaBtn" contentDisplay="TOP" onAction="#loadAddFerramenta" prefHeight="180.0" prefWidth="190.0" styleClass="setup-button" stylesheets="@main.css" text="Cadastrar Ferramenta">
+							<graphic>
+								<ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../../images/hammer-2f382e.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -387,6 +387,9 @@
 					</BorderPane.margin>
 				</TabPane>
 			</center>
+         <bottom>
+            <HBox prefHeight="26.0" prefWidth="900.0" style="-fx-background-color: #B4C5C6;" BorderPane.alignment="CENTER" />
+         </bottom>
 		</BorderPane>
 	</children>
 </StackPane>
