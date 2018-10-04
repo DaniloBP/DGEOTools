@@ -149,7 +149,7 @@ public class MainController implements Initializable {
 	
 	@FXML
     void loadBuscarFerramenta(ActionEvent event) {
-		
+		loadWindow("Cadastrar Novo Usuário", "src/view/ferramenta/FetchFerramenta.fxml"); 
     }    
 	
 	@FXML
@@ -195,7 +195,7 @@ public class MainController implements Initializable {
 		usuarioColumnMatricula.setCellValueFactory(new PropertyValueFactory<>("matricula"));	
 		usuarioColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));	
 		usuarioColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-		ferramentaColumnStatus.setCellValueFactory(new PropertyValueFactory<>("emprestimo ativo"));
+		ferramentaColumnStatus.setCellValueFactory(new PropertyValueFactory<>("emprestimoAtivo"));  // PODE DAR ERRADO !!!
 	}
    
    @FXML
@@ -221,7 +221,7 @@ public class MainController implements Initializable {
 		
 		ferramentaColumnID.setCellValueFactory(new PropertyValueFactory<>("id"));	
 		ferramentaColumnTipo.setCellValueFactory(new PropertyValueFactory<>("inicio"));	
-		ferramentaColumnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));		
+		ferramentaColumnStatus.setCellValueFactory(new PropertyValueFactory<>("isAtivo"));	// PODE DAR ERRADO !!!
 	}
    
    @FXML
@@ -246,7 +246,7 @@ public class MainController implements Initializable {
 		
 		ferramentaColumnID.setCellValueFactory(new PropertyValueFactory<>("id"));	
 		ferramentaColumnTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));	
-		ferramentaColumnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));		
+		ferramentaColumnStatus.setCellValueFactory(new PropertyValueFactory<>("isDisponivel"));		
 	}
     
     @FXML
@@ -275,8 +275,7 @@ public class MainController implements Initializable {
 	    			  "-fx-font: 13px \"Serif\";"
 					+ "-fx-background-color: #669b92;"
 					+ "-fx-font-weight: bold;"  	);
-    	} else {
-    		
+    	} else {    		
     		this.comboBoxFerramentas.setStyle(  
 	    			  "-fx-font: 13px \"Serif\";"
 					+ "-fx-background-color: #669b92;"

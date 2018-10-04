@@ -41,9 +41,9 @@
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="cpfTxt" layoutX="274.0" layoutY="97.0" prefHeight="30.0" prefWidth="167.0" promptText="CPF" />
+            <JFXTextField fx:id="cpfTxt" labelFloat="true" layoutX="274.0" layoutY="97.0" prefHeight="30.0" prefWidth="167.0" promptText="CPF" />
             <JFXTextField fx:id="nomeTxt" labelFloat="true" layoutX="14.0" layoutY="157.0" prefHeight="30.0" prefWidth="429.0" promptText="Nome" />
-            <JFXTextField fx:id="emailTxt" layoutX="36.0" layoutY="223.0" prefHeight="30.0" prefWidth="384.0" promptText="E-mail" />
+            <JFXTextField fx:id="emailTxt" labelFloat="true" layoutX="36.0" layoutY="223.0" prefHeight="30.0" prefWidth="384.0" promptText="E-mail" />
             <HBox layoutX="6.0" layoutY="290.0" prefHeight="67.0" prefWidth="444.0">
                <children>
                   <JFXButton fx:id="saveBtn" onAction="#saveUsuario" prefHeight="60.0" prefWidth="380.0" styleClass="jfx-button" stylesheets="@usuario.css" text="Save">

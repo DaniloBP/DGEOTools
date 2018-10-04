@@ -11,3 +11,8 @@
 .jfx-combo-box .list-view .list-cell{
 	-fx-text-fill: #A7F98E;
 }
+
+JFXRadioButton {
+    -jfx-selected-color: #274E51;
+    -jfx-unselected-color: #8E3E3E;
+}

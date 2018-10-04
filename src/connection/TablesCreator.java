@@ -50,7 +50,7 @@ public class TablesCreator {
 	
 	private void setupMemberTable() {
 		
-		String TABLE_NAME = "MEMBER";
+		String TABLE_NAME = "USUARIO";
 		
 		try {
 			stmt = conn.createStatement();

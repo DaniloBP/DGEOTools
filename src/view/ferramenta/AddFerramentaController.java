@@ -66,9 +66,18 @@ public class AddFerramentaController implements Initializable {
 		
 		FerramentaDAO dao = new FerramentaDAO();		
 		dao.createFerramenta(ferramenta);
-    }
-	
-	private void emptyFieldAlert() {
+    }	
+
+    private void initComboBoxTipos() {
+    	
+    	ObservableList<Label> tipos = FXCollections.observableArrayList(new Label("1 - Bússola"), new Label("2 - GPS"), new Label("3 - Martelo Cristalino"), 
+				new Label("4 - Martelo Sedimentar"), new Label("5 - Perneiras") );
+    	
+		this.tiposComboBox.setItems(tipos);
+	}
+    	
+	private void emptyFieldAlert() {		
+		
 		// Tá dando algum tipo de CRASH no JVM quando a janela é fechada.
 		Alert alert = new Alert(Alert.AlertType.ERROR);
 		alert.setHeaderText(null);
@@ -82,23 +91,12 @@ public class AddFerramentaController implements Initializable {
     	closeWindow();
     }
     
-    private void initComboBoxTipos() {
-    	
-//    	this.tiposComboBox = new ComboBox<>();       	
-    	ObservableList<Label> tipos = FXCollections.observableArrayList(new Label("1 - Bússola"), new Label("2 - GPS"), new Label("3 - Martelo Cristalino"), 
-				new Label("4 - Martelo Sedimentar"), new Label("5 - Perneiras") );
-    	
-		this.tiposComboBox.setItems(tipos);
-	}
-    
     @FXML
     void exitAction(MouseEvent event) {
     	closeWindow();
     }
-
     
-    public void closeWindow() {
-    	
+    public void closeWindow() {    	
     	Stage stage = (Stage) rootPane.getScene().getWindow();
     	stage.close();
     }
