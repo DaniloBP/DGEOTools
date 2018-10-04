@@ -3,7 +3,7 @@ package model.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Requisitante {
+public class Usuario {
 	
 	protected String matricula;
 	protected String cpf;
@@ -15,12 +15,12 @@ public class Requisitante {
 	protected Emprestimo emprestimoAtivo;
 	protected List<Emprestimo> historicoEmprestimos;
 	
-	public Requisitante() {
+	public Usuario() {
 		
 	}
 	
 	// Construtor
-	public Requisitante(String matricula, String cpf, String nome, String email) {
+	public Usuario(String matricula, String cpf, String nome, String email) {
 		super();
 		
 		this.matricula = matricula;

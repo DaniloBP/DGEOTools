@@ -1,6 +1,6 @@
 package model.bean;
 
-public class Docente extends Requisitante {
+public class Docente extends Usuario {
 	
 	
 	public Docente(String siape, String cpf, String nome, String email) {

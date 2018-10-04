@@ -22,7 +22,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.bean.Emprestimo;
 import model.bean.Ferramenta;
+import model.bean.Usuario;
 
 
 public class MainController implements Initializable {
@@ -39,7 +41,61 @@ public class MainController implements Initializable {
     @FXML
     private JFXButton addFerramentaBtn;
     
-       
+    
+    // ---- TAB 'Usuarios' START ----
+    @FXML
+    private Tab tabUsuarios;
+    
+    @FXML
+    private HBox headerUsuarios;
+    @FXML
+    private JFXComboBox<Label> comboBoxUsuarios; 
+    @FXML
+    private JFXButton buscarUsuariosBtn;
+
+    @FXML
+    private TableView<Usuario> tableViewUsuarios;
+    @FXML
+    private TableColumn<Usuario, String> usuarioColumnMatricula; 
+    @FXML
+    private TableColumn<Usuario, String> usuarioColumnNome;
+    @FXML
+    private TableColumn<Usuario, String> usuarioColumnEmail; 
+    @FXML
+    private TableColumn<Usuario, String> usuarioColumnEmprestimoAtivo; 
+
+    @FXML
+    private HBox bottomUsuarios;
+    @FXML
+    private JFXButton viewUsuarioBtn;
+    // ---- TAB 'Usuarios' END ---- 
+    
+    // ---- TAB 'Emprestimos' START ----
+    @FXML
+    private Tab tabEmprestimos;
+    
+    @FXML
+    private HBox headerEmprestimos;
+    @FXML
+    private JFXComboBox<Label> comboBoxEmprestimos; 
+    @FXML
+    private JFXButton buscarEmprestimosBtn;
+
+    @FXML
+    private TableView<Emprestimo> tableViewEmprestimos;
+    @FXML
+    private TableColumn<Emprestimo, String> emprestimoColumnID;
+    @FXML
+    private TableColumn<Emprestimo, String> emprestimoColumnDataInicio;  //Ver se é melhor deixar o tipo String mesmo.
+    @FXML
+    private TableColumn<Emprestimo, String> emprestimoColumnStatus;     
+
+    @FXML
+    private HBox bottomEmprestimo;
+    @FXML
+    private JFXButton viewEmprestimoBtn;
+    // ---- TAB 'Emprestimos' END ---- 
+    
     // ---- TAB 'Ferramentas' START ----
     @FXML
     private Tab tabFerramentas;
@@ -47,7 +103,7 @@ public class MainController implements Initializable {
     @FXML
     private HBox headerFerramentas;
     @FXML
-    private JFXComboBox<Label> comboBoxBuscarFerramentas; 
+    private JFXComboBox<Label> comboBoxFerramentas;  
     @FXML
     private JFXButton buscarFerramentasBtn;
 
@@ -69,6 +125,12 @@ public class MainController implements Initializable {
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		initComboBoxUsuarios();
+		initColumnsUsuarios();	//Tab Usuarios
+		
+		initComboBoxEmprestimos();
+		initColumnsEmprestimos();	//Tab Emprestimos
 		
 		initComboBoxFerramentas();
 		initColumnsFerramentas();	//Tab Ferramentas
@@ -92,7 +154,7 @@ public class MainController implements Initializable {
 	
 	@FXML
     void loadAddUsuario(ActionEvent event) {
-		
+		loadWindow("Cadastrar Novo Usuário", "src/view/usuario/AddUsuario.fxml");
     }
     
     @FXML
@@ -119,14 +181,65 @@ public class MainController implements Initializable {
 			e.printStackTrace();
 		}
     }
+    
+   //  ---- ACTIONS FROM TAB 'Usuarios'  ----
+   private void initComboBoxUsuarios() {
+   	
+		this.comboBoxUsuarios.getItems().add(new Label("Usuários Ativos") );
+		this.comboBoxUsuarios.getItems().add(new Label("Usuários com Empréstimo Ativo") );
+		this.comboBoxUsuarios.getItems().add(new Label("Usuários com Empréstimo Em Atraso") );
+	}
+
+   private void initColumnsUsuarios() {
+		
+		usuarioColumnMatricula.setCellValueFactory(new PropertyValueFactory<>("matricula"));	
+		usuarioColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));	
+		usuarioColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+		ferramentaColumnStatus.setCellValueFactory(new PropertyValueFactory<>("emprestimo ativo"));
+	}
    
+   @FXML
+   void buscarUsuariosAction(ActionEvent event) {
+   	
+   }
+
+   @FXML
+   void openViewUsuario(ActionEvent event) {
+
+   }   
+
+    
+   //  ---- ACTIONS FROM TAB 'Emprestimos'  ----
+   private void initComboBoxEmprestimos() {
+   	
+		this.comboBoxEmprestimos.getItems().add(new Label("Empréstimos Ativos") );
+		this.comboBoxEmprestimos.getItems().add(new Label("Empréstimos Encerrados") );
+		this.comboBoxEmprestimos.getItems().add(new Label("Empréstimos Em Atraso") );
+	}
+
+   private void initColumnsEmprestimos() {
+		
+		ferramentaColumnID.setCellValueFactory(new PropertyValueFactory<>("id"));	
+		ferramentaColumnTipo.setCellValueFactory(new PropertyValueFactory<>("inicio"));	
+		ferramentaColumnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));		
+	}
    
-    //   ---- ACTIONS FROM TAB 'Ferramentas'  ----
-    private void initComboBoxFerramentas() {
+   @FXML
+   void buscarEmprestimosAction(ActionEvent event) {
+   	
+   }
+
+   @FXML
+   void openViewEmprestimo(ActionEvent event) {
+
+   }   
+   
+	//   ---- ACTIONS FROM TAB 'Ferramentas'  ----
+	private void initComboBoxFerramentas() {
     	
-		this.comboBoxBuscarFerramentas.getItems().add(new Label("Empréstimos Ativos") );
-		this.comboBoxBuscarFerramentas.getItems().add(new Label("Empréstimos Encerrados") );
-		this.comboBoxBuscarFerramentas.getItems().add(new Label("Empréstimos Em Atraso") );
+		this.comboBoxFerramentas.getItems().add(new Label("Ferramentas Disponíveis") );
+		this.comboBoxFerramentas.getItems().add(new Label("Ferramentas em Empréstimo") );
+		this.comboBoxFerramentas.getItems().add(new Label("Ferramentas Avariadas") );
 	}
 
     private void initColumnsFerramentas() {
@@ -147,12 +260,31 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void verifyAction(ActionEvent event) {
+    void verifyComboAction(ActionEvent event) {
     	
-    	this.comboBoxBuscarFerramentas.setStyle(  
-						    			  "-fx-font: 15px \"Serif\";"
-										+ "-fx-background-color: #669b92;"
-										+ "-fx-font-weight: bold;"  	);
+    	Object source = event.getSource();
+    	
+    	if(source == comboBoxUsuarios) {
+    		this.comboBoxUsuarios.setStyle(  
+	    			  "-fx-font: 13px \"Serif\";"
+					+ "-fx-background-color: #ffffff;"
+					+ "-fx-text-fill: #c6d5df;"
+					+ "-fx-font-weight: bold;"  	);
+    	} else if(source == comboBoxEmprestimos) {
+    		this.comboBoxEmprestimos.setStyle(  
+	    			  "-fx-font: 13px \"Serif\";"
+					+ "-fx-background-color: #669b92;"
+					+ "-fx-font-weight: bold;"  	);
+    	} else {
+    		
+    		this.comboBoxFerramentas.setStyle(  
+	    			  "-fx-font: 13px \"Serif\";"
+					+ "-fx-background-color: #669b92;"
+					+ "-fx-font-weight: bold;"  	);
+    	}
+    	
     }
-  
+    
 }
+    	
+    	

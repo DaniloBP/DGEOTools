@@ -10,7 +10,7 @@ public class Emprestimo {
 	private Date dataHora_Inicio;
 	private Date dataHora_Fim;
 	
-	private Requisitante requisitante;
+	private Usuario requisitante;
 	
 	private List<Ferramenta> ferramentas;
 	
@@ -19,7 +19,7 @@ public class Emprestimo {
 	
 	private Boolean isAtivo;
 
-	public Emprestimo(Date dataHora_Inicio, Requisitante requisitante, Servidor servidorResponsavel_Inicio) {
+	public Emprestimo(Date dataHora_Inicio, Usuario requisitante, Servidor servidorResponsavel_Inicio) {
 		super();
 		this.dataHora_Inicio = dataHora_Inicio;
 		this.requisitante = requisitante;
@@ -58,11 +58,11 @@ public class Emprestimo {
 		this.dataHora_Fim = dataHora_Fim;
 	}
 
-	public Requisitante getRequisitante() {
+	public Usuario getRequisitante() {
 		return requisitante;
 	}
 
-	public void setRequisitante(Requisitante requisitante) {
+	public void setRequisitante(Usuario requisitante) {
 		this.requisitante = requisitante;
 	}
 

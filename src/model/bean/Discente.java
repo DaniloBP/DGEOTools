@@ -1,6 +1,6 @@
 package model.bean;
 
-public class Discente extends Requisitante {
+public class Discente extends Usuario {
 	
 	public Discente(String siape, String cpf, String nome, String email) {
 		

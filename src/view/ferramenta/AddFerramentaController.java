@@ -7,10 +7,13 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -30,7 +33,7 @@ public class AddFerramentaController implements Initializable {
     @FXML
     private JFXTextField idTxt;
     @FXML
-    private JFXTextField tipoTxt;
+    private ComboBox<Label> tiposComboBox;
     @FXML
     private JFXTextArea descricaoTxtArea;
     
@@ -43,13 +46,14 @@ public class AddFerramentaController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		initComboBoxTipos();
 	}
 	
 	@FXML
     public void saveFerramenta(ActionEvent event) {
 		
 		String toolId = idTxt.getText();
-		String toolTipo = tipoTxt.getText();
+		String toolTipo = tiposComboBox.getSelectionModel().getSelectedItem().getText();
 		String toolDescricao = descricaoTxtArea.getText();
 		
 		if (toolId.isEmpty() || toolTipo.isEmpty() || toolDescricao.isEmpty()) {		
@@ -77,6 +81,15 @@ public class AddFerramentaController implements Initializable {
     void cancel(ActionEvent event) {    	
     	closeWindow();
     }
+    
+    private void initComboBoxTipos() {
+    	
+//    	this.tiposComboBox = new ComboBox<>();       	
+    	ObservableList<Label> tipos = FXCollections.observableArrayList(new Label("1 - Bússola"), new Label("2 - GPS"), new Label("3 - Martelo Cristalino"), 
+				new Label("4 - Martelo Sedimentar"), new Label("5 - Perneiras") );
+    	
+		this.tiposComboBox.setItems(tipos);
+	}
     
     @FXML
     void exitAction(MouseEvent event) {

@@ -7,7 +7,3 @@
 .jfx-button:hover{
 	-fx-background-color: #A7F98E;
 }
-
-.jfx-combo-box .list-view .list-cell{
-	-fx-text-fill: #A7F98E;
-}
