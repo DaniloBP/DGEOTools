@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 
+import connection.TablesCreator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -160,6 +161,9 @@ public class MainController implements Initializable {
     @FXML
     void loadAddFerramenta(ActionEvent event) {
     	
+//		TablesCreator tbCreator = new TablesCreator();
+//		tbCreator.setupFerramentaTable();
+		
     	loadWindow("Cadastrar Nova Ferramenta", "src/view/ferramenta/AddFerramenta.fxml");
     }    
     

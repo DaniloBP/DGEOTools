@@ -13,13 +13,14 @@ public class TablesCreator {
 	private static Statement stmt = null;
 	
 	
-	TablesCreator() {
+	public TablesCreator() {
 		
 		conn = ConnectionFactory.getConnection();		
+//		setupFerramentaTable();
 	}
 	
 	
-	void setupFerramentaTable() {
+	public void setupFerramentaTable() {
 		
 		String TABLE_NAME = "FERRAMENTA";
 		
@@ -32,13 +33,15 @@ public class TablesCreator {
 				System.out.println("Table " + TABLE_NAME + " already exists. We're good to go!");
 			} else {
 				stmt.execute( "CREATE TABLE " + TABLE_NAME + " ("
-							+ "		id varchar(1) NOT NULL primary key, \n"
+							+ "		id varchar(20) NOT NULL primary key, \n"
 							+ "		tipo varchar(50) NOT NULL,\n"
 							+ "		descricao varchar(200),\n"
 							+ " 	isDisponivel boolean default true"
 							+ " ) DEFAULT CHARSET = UTF8MB4;" 
 							);
 			}
+			
+			System.out.println("Tabela criada!!");
 			
 		} catch (SQLException e) {
 			System.err.println(e.getMessage() + " ... set up Database");
